@@ -1,13 +1,18 @@
 // script.js
+
+const API = process.env.API_URL
+const token = process.env.TOKEN
 export async function query(data) {
   try {
     const response = await fetch(
       'https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud',
+      // API,
       {
         headers: {
           Accept: 'image/png',
           Authorization:
             'Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM',
+          // token,
           'Content-Type': 'application/json'
         },
         method: 'POST',
@@ -23,6 +28,6 @@ export async function query(data) {
     return result
   } catch (error) {
     console.error('Error:', error)
-    throw error // Propagate the error to the caller
+    throw error
   }
 }

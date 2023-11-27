@@ -6,8 +6,8 @@ import { query } from './script'
 const ComicGenerator = () => {
   const [comicText, setComicText] = useState('')
 
-  const [comicStripImages, setComicStripImages] = useState([]) // Container for comic strip images
-  const [panelImages, setPanelImages] = useState([]) // Container for panel images
+  const [comicStripImages, setComicStripImages] = useState([])
+  const [panelImages, setPanelImages] = useState([])
 
   const handleInputChange = (e) => {
     setComicText(e.target.value)
@@ -23,7 +23,6 @@ const ComicGenerator = () => {
       setPanelImages([imageUrl])
 
       // Add the new image to the comic strip images
-      //   setComicStripImages((prevImages) => [...prevImages, imageUrl])
       setComicText('')
     } catch (error) {
       console.error('Error in API request:', error)
@@ -40,21 +39,22 @@ const ComicGenerator = () => {
 
   return (
     <div className="comic-generator">
-      <h1
-        style={{
-          textAlign: 'center',
-          fontSize: '4em',
-          fontFamily: "'Raleway', sans-serif"
-        }}
-      >
-        Comic AI Generator
-      </h1>
+      <div className="header-text">Comicon AI Generator</div>
+
+      {/* Panel images */}
+      <div className="panel-container">
+        {panelImages.map((imageUrl, index) => (
+          <img key={index} src={imageUrl} alt={`Panel Image ${index + 1}`} />
+        ))}
+      </div>
+
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          marginBottom: '20px'
+          marginBottom: '30px',
+          marginTop: '20px'
         }}
       >
         <input
@@ -63,13 +63,16 @@ const ComicGenerator = () => {
           value={comicText}
           onChange={handleInputChange}
           style={{
-            width: '350px', // Adjusted width
-            height: '100px', // Adjusted height
+            width: '500px',
+            height: '100px',
             padding: '10px',
             boxSizing: 'border-box',
-            marginBottom: '10px',
-            borderRadius: '10px', // Rounded corners
-            border: '2.25px solid #ccc' // Add a border for visual appeal
+            marginBottom: '20px',
+            marginTop: '15px',
+            borderRadius: '20px',
+            border: '2.25px solid #ccc',
+            fontWeight: 550,
+            fontSize: 20
           }}
         />
         {/* Generate button */}
@@ -83,7 +86,7 @@ const ComicGenerator = () => {
           onClick={() => setPanelImages([])}
           className="clear-panel-button"
         >
-          Clear Panel
+          CLEAR PANEL
         </button>
 
         {/* Add Panel to Comic Strip button */}
@@ -95,12 +98,6 @@ const ComicGenerator = () => {
           Add Panel to Comic Strip
         </button>
       </div>
-      {/* Panel images */}
-      <div className="panel-container">
-        {panelImages.map((imageUrl, index) => (
-          <img key={index} src={imageUrl} alt={`Panel Image ${index + 1}`} />
-        ))}
-      </div>
 
       {/* Comic strip images */}
       <div className="strip-container">
@@ -109,7 +106,6 @@ const ComicGenerator = () => {
             key={index}
             src={imageUrl}
             alt={`Comic Strip Image ${index + 1}`}
-            // style={{ width: '100px', height: '100px', marginRight: '5px' }}
           />
         ))}
       </div>
