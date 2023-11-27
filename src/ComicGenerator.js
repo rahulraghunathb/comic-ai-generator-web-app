@@ -40,16 +40,61 @@ const ComicGenerator = () => {
 
   return (
     <div className="comic-generator">
-      <input
-        type="text"
-        placeholder="Enter your comic text here..."
-        value={comicText}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleGenerate}>Generate</button>
-      <button onClick={() => setPanelImages([])}>Clear Panel</button>
-      <button onClick={handleAddToComicStrip}>Add to Comic Strip</button>
+      <h1
+        style={{
+          textAlign: 'center',
+          fontSize: '4em',
+          fontFamily: "'Raleway', sans-serif"
+        }}
+      >
+        Comic AI Generator
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginBottom: '20px'
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Enter your comic text here..."
+          value={comicText}
+          onChange={handleInputChange}
+          style={{
+            width: '350px', // Adjusted width
+            height: '100px', // Adjusted height
+            padding: '10px',
+            boxSizing: 'border-box',
+            marginBottom: '10px',
+            borderRadius: '10px', // Rounded corners
+            border: '2.25px solid #ccc' // Add a border for visual appeal
+          }}
+        />
+        {/* Generate button */}
+        <button onClick={handleGenerate} className="generate-button">
+          GENERATE
+        </button>
 
+        {/* Clear Panel button */}
+        <button
+          style={{ margin: '5px' }}
+          onClick={() => setPanelImages([])}
+          className="clear-panel-button"
+        >
+          Clear Panel
+        </button>
+
+        {/* Add Panel to Comic Strip button */}
+        <button
+          style={{ margin: '5px' }}
+          onClick={handleAddToComicStrip}
+          className="add-panel-button"
+        >
+          Add Panel to Comic Strip
+        </button>
+      </div>
       {/* Panel images */}
       <div className="panel-container">
         {panelImages.map((imageUrl, index) => (
@@ -64,7 +109,7 @@ const ComicGenerator = () => {
             key={index}
             src={imageUrl}
             alt={`Comic Strip Image ${index + 1}`}
-            style={{ width: '100px', height: '100px', marginRight: '5px' }}
+            // style={{ width: '100px', height: '100px', marginRight: '5px' }}
           />
         ))}
       </div>

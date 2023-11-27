@@ -2,26 +2,89 @@
 
 .comic-generator {
   text-align: center;
-  margin: 20px;
+  margin: 50px;
 }
 
-.strip-container {
+.panel-container {
   border: 2px solid #000;
+  background-color: #f0f0f0; /* Light gray background color */
   padding: 10px;
   margin-top: 20px;
-  /* Set a maximum width to ensure that the images don't stretch the container too much */
-  max-width: 500px;
-  /* Center the container horizontally */
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Style the images inside the .strip-container */
+.panel-container img {
+  display: block; /* Ensure images are displayed as block elements */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strip-container {
+  border: 3.5px solid #000; /* Black border color for strip container */ /* Blue border color for strip container */
+  background-color: #f9f9f9; /* Off-white background color */
+  padding: 10px;
+  margin-top: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .strip-container img {
-  display: inline-block;
+  display: inline-block; /* Display images as inline-block elements */
   margin: 5px; /* Adjust margin as needed */
-  /* Set a fixed width for each image to create the desired grid */
-  width: calc(20% - 10px); /* 10px margin on each side */
-  /* Adjust the height to maintain the aspect ratio of the images */
-  height: auto;
+  width: 100px; /* Set a fixed width for strip images */
+  height: 100px; /* Set a fixed height for strip images */
+  border: 2.5px solid #000;
+}
+
+.generate-button,
+.clear-panel-button,
+.add-panel-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Generate button styles */
+.generate-button {
+  border: 2px solid #ff0000; /* Red color */
+  color: #ffffff; /* White text */
+  background-color: #ff0000; /* Red background color */
+}
+
+.generate-button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #ff0000; /* Red text on hover */
+}
+
+/* Clear Panel button styles */
+.clear-panel-button {
+  border: 2px solid #008000; /* Green color */
+  color: #ffffff; /* White text */
+  background-color: rgb(18, 135, 18); /* Green background color */
+}
+
+.clear-panel-button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #008000; /* Green text on hover */
+}
+
+/* Add Panel to Comic Strip button styles */
+.add-panel-button {
+  border: 2px solid #0000ff; /* Blue color */
+  color: #ffffff; /* White text */
+  background-color: #0000ff; /* Blue background color */
+}
+
+.add-panel-button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #0000ff; /* Blue text on hover */
 }
